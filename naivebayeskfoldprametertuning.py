@@ -1,4 +1,5 @@
 # %% [code]
+# %% [code]
 # This Python 3 environment comes with many helpful analytics libraries installed
 # It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python
 # For example, here's several helpful packages to load
@@ -6,10 +7,8 @@
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import warnings
-from sklearn import metrics
-from sklearn.metrics import classification_report
 from sklearn.model_selection import RandomizedSearchCV,StratifiedKFold
-from sklearn.preprocessing import PowerTransformer
+from sklearn.preprocessing import PowerTransformer#to make data more Gaussian-like
 from sklearn.naive_bayes import GaussianNB
 
 # Input data files are available in the read-only "../input/" directory
