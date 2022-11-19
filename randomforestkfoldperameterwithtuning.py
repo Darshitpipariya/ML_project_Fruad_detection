@@ -48,12 +48,13 @@ params = random_result.cv_results_['params']
 for mean, stdev, param in zip(means, stds, params):
         print("%f (%f) with: %r" % (mean, stdev, param))
         
-
-        
+print("\n\n\nBest Parameter {}".format(random_result.best_params_))
+model=RandomForestClassifier(**random_result.best_params_)  
+model.fit(X,y)
 #    output test predictions for model
 test=pd.read_csv("../input/transaction-fruad/Test_without_Data_balancing.csv")
 test=test.drop(test.columns[0],axis=1)
-predictions_test = random_search.predict(test)
+predictions_test = model.predict(test)
 Test_df_predictions=pd.DataFrame(data=predictions_test,columns=["isFraud"])
 Test_df_predictions.reset_index(inplace=True)
 Test_df_predictions.rename(columns={"index":"Id"},inplace=True)
